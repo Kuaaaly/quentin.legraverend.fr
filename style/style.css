@@ -1,0 +1,58 @@
+body {
+  background-color: #f0f3f7;
+  color: #666e78;
+  font-family: helvetica;
+  text-align: center;
+}
+
+.profil {
+  margin-top: 10em;
+  text-align: center;
+}
+
+.profil img {
+  border-style: solid;
+  border-color: #b1bbc7;
+  border-radius: 250px;
+  border-width: 6px;
+  height: 10em;
+  width: 10em;
+}
+
+.name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.description {
+  margin-left: 30%;
+  margin-right: 30%;
+  text-align: center;
+}
+
+.network li {
+  display: inline-block;
+  margin: 1em;
+}
+
+.network ul {
+  margin: 0;
+  padding: 0;
+}
+
+.network a {
+  color: inherit;
+}
+
+.network i {
+  font-size: 2em;
+}
+
+footer {
+  bottom: 0;
+  font-size: 14px;
+  left: 0;
+  margin-bottom: 1em;
+  position: absolute;
+  right: 0;
+}
