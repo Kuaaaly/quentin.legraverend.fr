@@ -7,7 +7,7 @@ ENV GOOS=linux
 RUN go build server.go
 
 FROM scratch
-COPY static /
+COPY static /static
 COPY --from=builder /opt/server /
 
 CMD ["./server"]
