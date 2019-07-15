@@ -48,6 +48,19 @@ body {
   font-size: 2em;
 }
 
+.error {
+  position: absolute;
+  font-size: 30px;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  height: 100px;
+  font-weight: bold;
+}
+
 footer {
   bottom: 0;
   font-size: 14px;
