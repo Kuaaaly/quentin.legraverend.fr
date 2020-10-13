@@ -1,38 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=PT+Sans:wght@700&display=swap');
+
+:root {
+  --profile-img-margin: 30px;
+  --slide-exec-time: .5s;
+}
+
 body {
   background-color: #f0f3f7;
   color: #666e78;
-  font-family: helvetica;
+  font-family: 'Lato', sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
-.profil {
-  margin-top: 10em;
+#section-profil {
   text-align: center;
+  width: 580px;
+  margin:auto;
+  min-height: calc(100vh - 65px - var(--profile-img-margin));
 }
 
-.profil img {
+@media all and (max-width: 640px) {
+  #section-profil {
+    width: 100%;
+  }
+}
+
+h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.profil > img {
   border-style: solid;
-  border-color: #b1bbc7;
-  border-radius: 250px;
+  border-color: #fff;
+  border-radius: 50%;
   border-width: 6px;
   height: 10em;
   width: 10em;
 }
 
-.name {
-  font-size: 2em;
-  font-weight: bold;
+@media all and (max-width: 640px) {
+  .profil > img {
+    border-width: 6px;
+    height: 7em;
+    width: 7em;
+  }
+}
+
+.profil {
+  opacity: 0;
+  margin: var(--profile-img-margin) 0 var(--profile-img-margin) 0;
+  animation: slidein var(--slide-exec-time) .0s forwards;
 }
 
 .description {
-  margin-left: 30%;
-  margin-right: 30%;
   text-align: center;
 }
 
 .network li {
+  position: relative;
   display: inline-block;
-  margin: 1em;
+  margin: 1.2em;
+  z-index: 0;
+  width: 33px;
+  height: 33px;
+  color: #82949c;
+}
+
+.network li::before {
+  --li-margin: -15px;
+  content:"";
+  position: absolute;
+  left: var(--li-margin);
+  right: var(--li-margin);
+  top: var(--li-margin);
+  bottom: var(--li-margin);
+  background-color: #f0f3f7;
+  z-index: -1;
+  border-radius: 50%;
+  opacity: 0.5;
+  transform: translateY(12px) rotateX(80deg);
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.network li:hover::before {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg);
 }
 
 .network ul {
@@ -48,6 +105,40 @@ body {
   font-size: 2em;
 }
 
+p > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #3f51b5;
+  position: relative;
+}
+
+p > a::after {
+  content:"";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background-color: #3f51b5;
+  bottom: -1px;
+  transition: all .15s;
+  border-radius: 5px;
+}
+
+p > a:hover::after {
+  left: 0%;
+  right: 0%;
+}
+
+@media all and (max-width: 640px) {
+  .network li {
+    display: inline-block;
+    margin: 12px;
+  }
+  .network i {
+    font-size: 1.6em;
+  }
+}
+
 .error {
   position: absolute;
   font-size: 30px;
@@ -61,11 +152,89 @@ body {
   font-weight: bold;
 }
 
-footer {
-  bottom: 0;
-  font-size: 14px;
-  left: 0;
-  margin-bottom: 1em;
+.shadow { 
+  -webkit-box-shadow: 0px 10px 15px 0px #e6e6e6;
+  -moz-box-shadow: 0px 10px 15px 0px #e6e6e6;
+  box-shadow: 0px 10px 15px 0px #e6e6e6;
+}
+
+.profil-content {
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px 60px;
+  position: relative;
+  border-radius: 4px;
+  opacity: 0;
+  animation: slidein var(--slide-exec-time) .2s forwards;
+}
+
+.profil-footer {
+  opacity: 0;
+  animation: slidein var(--slide-exec-time) .4s forwards;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.profil-content > div {
+  margin: 30px 0;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0; 
+    transform: translateY(-35px) scale(.8);
+  }
+
+  to {
+    opacity: 1; 
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@media all and (max-width: 640px) {
+
+  h1 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .profil-content {
+    margin: 0 20px;
+    padding: 10px 15px;
+  }
+
+  .profil-content > div {
+    margin: 10px 0;
+  }
+}
+
+.profil-content::before {
+  --triangle-size: 20px;
+  content: "";
   position: absolute;
-  right: 0;
+  left: calc(50% - var(--triangle-size));
+  top: calc(0px - var(--triangle-size) / 1.2);
+  width: 0; 
+  height: 0; 
+  border-left: var(--triangle-size) solid transparent;
+  border-right: var(--triangle-size) solid transparent;
+  border-bottom: var(--triangle-size) solid #fff;
+}
+
+footer {
+  padding: 10px;
+}
+
+footer p {
+  font-size: 14px;
+  font-style: italic;
 }
