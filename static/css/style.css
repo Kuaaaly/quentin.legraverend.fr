@@ -81,10 +81,10 @@ h1, h2, h3, h4 {
   background-color: #f0f3f7;
   z-index: -1;
   border-radius: 50%;
-  opacity: 0.3;
-  transform: translateY(12px) rotateX(80deg);
-  transition: all .3s;
+  opacity: 0.1;
+  transition: all .3s ease;
   cursor: pointer;
+  transform: translateY(10px);
 }
 
 @media all and (max-width: 640px) {
@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
 
 .network li:hover::before {
   opacity: .5;
-  transform: translateY(0) rotateX(0deg);
+  transform: translateY(0px);
 }
 
 .network ul {
