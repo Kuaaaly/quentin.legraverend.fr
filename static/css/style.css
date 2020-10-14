@@ -2,7 +2,7 @@
 
 :root {
   --profile-img-margin: 30px;
-  --slide-exec-time: .5s;
+  --slide-exec-time: .45s;
 }
 
 body {
@@ -18,7 +18,7 @@ body {
   text-align: center;
   width: 580px;
   margin:auto;
-  min-height: calc(100vh - 65px - var(--profile-img-margin));
+  min-height: calc(100vh - 59px - var(--profile-img-margin));
 }
 
 @media all and (max-width: 640px) {
@@ -81,14 +81,20 @@ h1, h2, h3, h4 {
   background-color: #f0f3f7;
   z-index: -1;
   border-radius: 50%;
-  opacity: 0.5;
+  opacity: 0.3;
   transform: translateY(12px) rotateX(80deg);
   transition: all .3s;
   cursor: pointer;
 }
 
+@media all and (max-width: 640px) {
+  .network li::before {
+    display: none;
+  }
+}
+
 .network li:hover::before {
-  opacity: 1;
+  opacity: .5;
   transform: translateY(0) rotateX(0deg);
 }
 
@@ -165,12 +171,12 @@ p > a:hover::after {
   position: relative;
   border-radius: 4px;
   opacity: 0;
-  animation: slidein var(--slide-exec-time) .2s forwards;
+  animation: slidein var(--slide-exec-time) .1s forwards;
 }
 
 .profil-footer {
   opacity: 0;
-  animation: slidein var(--slide-exec-time) .4s forwards;
+  animation: slidein var(--slide-exec-time) .2s forwards;
 }
 
 h1 {
@@ -235,6 +241,5 @@ footer {
 }
 
 footer p {
-  font-size: 14px;
-  font-style: italic;
+  font-size: 12px;
 }
